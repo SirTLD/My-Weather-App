@@ -9,7 +9,7 @@
 body {
     font-family: 'Merriweather Sans', sans-serif;
     overflow-y: hidden;
-
+  
 }
 
 .main-container {
@@ -31,7 +31,7 @@ body {
 .search {
     display: flex;
     position: relative;
-    top: 182px;
+    top: 120px;
     margin: 0 auto;
     height: 50px;
     width: 30%;
@@ -76,12 +76,14 @@ body {
     background-color: rgba(29, 29, 29, 0.7);
     height: 55vh;
     width: 40vw;
-    margin-top: 250px;
+    margin-top: 200px;
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
+
+
 }
 
 .weather-data {
@@ -153,7 +155,7 @@ body {
         -ms-border-radius: 50%;
         -o-border-radius: 50%;
         background-color: #E7E7E7;
-        box-shadow: 0 2px 5px  rgba(0, 0, 0, .2);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     }
 }
 
@@ -166,8 +168,8 @@ body {
     width: 287px;
 }
 
-.temp-icons-top, .temp-icons-bottom{
-
+.temp-icons-top,
+.temp-icons-bottom {
     display: flex;
     justify-content: space-between;
 }
@@ -194,6 +196,7 @@ body {
     position: relative;
     top: 10px;
 }
+
 .icon-description h4 {
     font-size: 12px;
     font-weight: 300;
@@ -201,3 +204,148 @@ body {
 
 
 //MAIN APP DESIGN - MEDIA QUERIES//
+
+
+@media screen and (max-width: 450px) {
+    .main-container {
+        background-image: url(/assets/mobile/background-main-mobile.jpg);
+        background-size: cover;
+        height: 100vh;
+    }
+
+
+    .search {
+        width: 80vw;
+    }
+
+    .search-field {
+        width: 85%;
+    }
+
+    .fa-search {
+        font-size: 22px;
+    }
+
+    //MAIN APP DESIGN - WEATHER SECTION//
+
+    .weather-data {
+        width: 80vw;
+        height: 60vh;
+        margin-top: 180px;
+    }
+
+  
+
+    .city-location {
+        font-size: 24px;
+    }
+
+    //MAIN APP DESIGN - WEATHER SECTION//
+
+    .weather-bottom-info {
+        display: flex;
+        flex-direction: column;
+        padding: 0 40px;
+    }
+
+    .temp-value {
+        text-align: center;
+        padding-top: 30px;
+        font-size: 65px;
+    }
+
+    .temp-toggle-container {
+        padding-top: 20px;
+    }
+
+       .temp-icons-top,
+    .temp-icons-bottom {
+      align-self: center;
+    
+      
+    }
+
+    //MAIN APP DESIGN - ICON SIZES//
+
+    .icon {
+        width: 90%;
+    }
+
+    .wi {
+        font-size: 26px;
+    }
+
+}
+
+@media screen and (min-width: 540px) {
+    .main-container {
+        height: 100vh;
+        padding-top: 50px;
+    }
+
+    .city-location {
+        font-size: 30px;
+    }
+    
+    .search {
+        width: 80vw;
+    }
+
+    .weather-data {
+        width: 90vw;
+        height: 50vh;
+    }
+
+    .weather-bottom-info {
+        padding: 30px 30px;
+    }
+
+    .temp-value {
+        font-size: 60px;
+    }
+
+    .temp-icons-top {
+        padding: 10px 4px;
+    }  
+}
+
+@media screen and (min-width: 768px) {
+
+    .main-container {
+        height: 100vh;
+       
+    }
+    .search {
+        width: 65vw;
+    }
+
+    .weather-data {
+        width: 80vw;
+        height: 40vh;
+    }
+
+    .weather-bottom-info {
+        padding: 45px 60px;
+    }
+
+    .temp-value {
+        font-size: 80px;
+    }
+}
+
+
+@media screen and (min-width: 1280px) {
+
+    .main-container {
+        padding-top: 50px;
+    }
+
+    .search {
+        width: 40%;
+    }
+
+    .weather-data {
+        width: 50vw;
+        height: 40vh;
+    }
+}
