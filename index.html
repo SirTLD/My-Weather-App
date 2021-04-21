@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/weather-icons.css">
+    <link rel="stylesheet" href="css/weather-icons-wind.css">
+
     <link rel="stylesheet" href="css/style.css">
     <title>My Weather App</title>
 </head>
@@ -22,21 +26,26 @@
         <div class="weather-data">
 
             <div class="weather-top-info">
-                <p> Washington, DC</p>
-                <h4>February 14, 2020</h4>
+                <p class="city-location"> Washington, DC</p>
+                <p class="current-date">February 14, 2020</h4>
             </div>
 
             <div class="weather-bottom-info">
-                <div class="temperature">
-                    <p>13<span>&#176;</span> C</p>
+
+                <div class="temp">
+                    <p class='temp-value'>13<span>&#176;</span> C</p>
+
                     <div class="temp-toggle-container">
-                        <div class="toggle-btn">
-                            <div class="toggle-cirlce">
+
+                        <p class='temp-units'><span>&#176;</span> C</p>
+
+                        <div class="temp-toggle-btn">
+                            <div class="toggle-circle">
 
                             </div>
                         </div>
 
-
+                        <p class='temp-units'><span>&#176;</span> F</p>
 
                     </div>
                 </div>
@@ -47,16 +56,16 @@
 
                         <div class="icon icon-1">
                             <div class="icon-logo-1">
-
+                                <i class="wi wi-day-sunny"></i>
                             </div>
                             <div class="icon-description">
-                                <h4 class="icon-1-title">Sun</h4>
+                                <h4 class="icon-1">Sun</h4>
                                 <h3 class="icon-1-description">Mild</h3>
                             </div>
                         </div>
                         <div class="icon icon-2">
                             <div class="icon-logo-2">
-
+                                <i class="wi wi-humidity"></i>
                             </div>
                             <div class="icon-description">
                                 <h4 class="icon-2-title">Humidity</h4>
@@ -69,18 +78,17 @@
 
                         <div class="icon icon-3">
                             <div class="icon-logo-3">
-                                
+                                <i class="wi wi-cloudy-gusts"></i>
                             </div>
                             <div class="icon-description">
                                 <h4 class="icon-3-title">Wind</h4>
                                 <h3 class="icon-3-description">0 km/h</h3>
                             </div>
-
                         </div>
 
                         <div class="icon icon-4">
                             <div class="icon-logo-4">
-                                
+                                <i class="wi wi-rain"></i>
                             </div>
                             <div class="icon-description">
                                 <h4 class="icon-4-title">Rainfall</h4>
