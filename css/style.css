@@ -164,7 +164,6 @@ body {
 
 .temp-toggle-btn .toggle-circle {
   position: absolute;
-  top: 20;
   left: 0;
   width: 20px;
   height: 20px;
@@ -327,6 +326,18 @@ body {
   }
   .temp-icons-top {
     padding: 10px 4px;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-height: 667px) {
+  .weather-data {
+    height: 72vh;
+  }
+}
+
+@media screen and (min-width: 375px) and (min-height: 812px) {
+  .weather-data {
+    height: 60vh;
   }
 }
 
