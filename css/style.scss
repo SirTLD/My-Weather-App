@@ -9,33 +9,35 @@
 body {
     font-family: 'Merriweather Sans', sans-serif;
     overflow-y: hidden;
-  
 }
 
 .main-container {
     height: 100vh;
-    background-image: url(/assets/desktop/background-main-desktop.jpg);
+    background-image: url('https://source.unsplash.com/1600x900/?weather,sky');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    // img {
-    //     content: url(/assets/desktop/background-main-desktop.jpg);
-    //     width: 100vw;
-    //     height: auto;
-    // }
 }
+
+.main-container-items {
+    //position: absolute;
+    margin: 0 auto;
+    //background-color: rgb(0, 183, 255);
+    height: 90vh;
+    width: 90%;
+   }
 
 //MAIN APP DESIGN - SEARCH SECTION//
 
-
 .search {
     display: flex;
+    // margin-top: 120px;
     position: relative;
-    top: 120px;
+    top: 90px;
     margin: 0 auto;
     height: 50px;
-    width: 30%;
-    background-color: rgba(29, 29, 29, 0.7);
+    width: 10%;
+    background-color: rgba(29, 29, 29, 0.9);
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -73,21 +75,16 @@ body {
 
 .weather-data {
     margin: 0 auto;
-    background-color: rgba(29, 29, 29, 0.7);
+    background-color: rgba(29, 29, 29, 0.9);
     height: 55vh;
-    width: 40vw;
+    width: 30vw;
     margin-top: 200px;
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
-
-
-}
-
-.weather-data {
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
 
 .city-location {
@@ -111,10 +108,12 @@ body {
     justify-content: center;
     display: flex;
     justify-content: space-between;
-    padding: 70px 85px;
+    padding: 20px 85px;
 }
 
 .temp {
+    // display: flex;
+    // flex-direction: column;
     // background-color: green;
     height: 159px;
     width: 240px;
@@ -125,10 +124,12 @@ body {
 }
 
 .temp-toggle-container {
+    margin-top: 10px;
     align-items: center;
     justify-content: center;
     display: flex;
     width: 100%;
+
 }
 
 .temp-units {
@@ -158,7 +159,6 @@ body {
         box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     }
 }
-
 
 //MAIN APP DESIGN - ICON LAYOUT PORTION//
 
@@ -193,8 +193,8 @@ body {
 
 .icon-description {
     line-height: 24px;
-    position: relative;
-    top: 10px;
+    // position: relative;
+    // top: 10px;
 }
 
 .icon-description h4 {
@@ -203,16 +203,17 @@ body {
 }
 
 
+
 //MAIN APP DESIGN - MEDIA QUERIES//
 
-
 @media screen and (max-width: 450px) {
+
     .main-container {
-        background-image: url(/assets/mobile/background-main-mobile.jpg);
+        background-image: url('https://source.unsplash.com/1600x900/?weather,sky');
         background-size: cover;
         height: 100vh;
+        padding-top: 50px;
     }
-
 
     .search {
         width: 80vw;
@@ -230,11 +231,9 @@ body {
 
     .weather-data {
         width: 80vw;
-        height: 60vh;
-        margin-top: 180px;
+        height: 75%;
+        margin-top: 120px;
     }
-
-  
 
     .city-location {
         font-size: 24px;
@@ -245,7 +244,7 @@ body {
     .weather-bottom-info {
         display: flex;
         flex-direction: column;
-        padding: 0 40px;
+        padding-top: 10px;
     }
 
     .temp-value {
@@ -255,14 +254,16 @@ body {
     }
 
     .temp-toggle-container {
-        padding-top: 20px;
+        padding-top: 10px;
     }
 
-       .temp-icons-top,
+    .temp-icons-top,
     .temp-icons-bottom {
-      align-self: center;
-    
-      
+        align-self: center;
+    }
+
+    .temp-icons-top {
+        padding-top: 30px;
     }
 
     //MAIN APP DESIGN - ICON SIZES//
@@ -274,19 +275,37 @@ body {
     .wi {
         font-size: 26px;
     }
+}
 
+
+@media screen and (min-width: 360px) and (max-height: 670px) {
+
+    .main-container {
+        // padding-top: 50px;
+        height: 100vh;
+    }
+
+    .search {
+        top: 20px;
+    }
+
+    .weather-data {
+        width: 80vw;
+        height: 80%;
+        margin-top: 50px;
+    }
 }
 
 @media screen and (min-width: 540px) {
     .main-container {
         height: 100vh;
-        padding-top: 50px;
+        // padding-top: 50px;
     }
 
     .city-location {
         font-size: 30px;
     }
-    
+
     .search {
         width: 80vw;
     }
@@ -306,15 +325,16 @@ body {
 
     .temp-icons-top {
         padding: 10px 4px;
-    }  
+    }
 }
 
 @media screen and (min-width: 768px) {
 
     .main-container {
         height: 100vh;
-       
+        // margin-top: 100px;
     }
+
     .search {
         width: 65vw;
     }
@@ -344,8 +364,29 @@ body {
         width: 40%;
     }
 
+    .temp-toggle-container {
+        width: 80%;
+    }
+
     .weather-data {
         width: 50vw;
+        height: 45vh;
+    }
+}
+
+
+@media screen and (min-width: 1920px) {
+
+    .main-container {
+        // padding-top: 50px;
+    }
+
+    .search {
+        width: 30%;
+    }
+
+    .weather-data {
+        width: 40vw;
         height: 45vh;
     }
 }
