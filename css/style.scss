@@ -167,12 +167,15 @@ body {
         &:hover {
             cursor: pointer;
         }
+
+    }
+
+    .toggle-circle-active {
+        // right: 0;
+        background-color: pink;
     }
 }
 
-.toggle-circle-active {
-    right: 0;
-}
 
 
 //MAIN APP DESIGN - ICON LAYOUT PORTION//
