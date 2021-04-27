@@ -30,21 +30,32 @@ let weather = {
       '.icon-logo-1'
     ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
-    document.querySelector('.temp-value').innerHTML = `${temp}°C`;
+    document.querySelector('.temp-value').innerHTML =
+      Math.round(`${temp}`) + '°C';
 
-    // document.querySelector('.icon-1').innerText = `${main}`;
+    // document.querySelector('.icon-1').innerHTML = `${main}`;
 
     document.querySelector('.icon-1-description').innerHTML = `${description}`;
 
     document.querySelector('.icon-2-description').innerText = `${humidity}%`;
 
-    document.querySelector('.icon-3-description').innerHTML = `${speed}km/h`;
+    document.querySelector('.icon-3-description').innerHTML =
+      Math.round(`${speed}`) + 'km/h';
   },
 
   search: function () {
     this.fetchWeather(document.querySelector('.search-field').value);
   },
 };
+
+// BACKGROUND WEATHER CHANGE
+
+let mainContent = document.querySelector('.main-container');
+
+mainContent.style.backgroundImage =
+  "url('https://source.unsplash.com/1600x900/?weather,sky')";
+
+// background-image: url('https://source.unsplash.com/1600x900/?weather,sky')
 
 // BUTTON TOGGLE OPERATION
 
@@ -77,3 +88,7 @@ document
       weather.search();
     }
   });
+
+let iconChange = () => {
+  weather.displayWeather(data.wind);
+};
