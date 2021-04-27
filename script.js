@@ -16,13 +16,23 @@ let weather = {
 
     const { icon, description, main } = data.weather[0];
 
-    const { temp, humidity } = data.main;
+    const { temp, humidity, feels_like } = data.main;
 
     const { speed } = data.wind;
 
     const { country } = data.sys;
 
-    console.log(name, icon, description, main, temp, humidity, speed, country);
+    console.log(
+      name,
+      icon,
+      description,
+      main,
+      temp,
+      feels_like,
+      humidity,
+      speed,
+      country
+    );
 
     document.querySelector('.city-location').innerText = `${name}, ${country}`;
 
@@ -33,7 +43,8 @@ let weather = {
     document.querySelector('.temp-value').innerHTML =
       Math.round(`${temp}`) + '°C';
 
-    // document.querySelector('.icon-1').innerHTML = `${main}`;
+    document.querySelector('.feels_value').innerHTML =
+      Math.round(`${feels_like}`) + '°C';
 
     document.querySelector('.icon-1-description').innerHTML = `${description}`;
 
@@ -55,9 +66,7 @@ let mainContent = document.querySelector('.main-container');
 mainContent.style.backgroundImage =
   "url('https://source.unsplash.com/1600x900/?weather,sky')";
 
-// background-image: url('https://source.unsplash.com/1600x900/?weather,sky')
-
-// BUTTON TOGGLE OPERATION
+// / BUTTON TOGGLE OPERATION
 
 document.querySelector('.toggle-circle').addEventListener('click', function () {
   this.classList.toggle('toggle-circle-active');

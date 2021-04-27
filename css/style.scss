@@ -119,6 +119,11 @@ body {
     font-size: 100px;
 }
 
+.temp-feels {
+    font-size: 14px;
+    font-weight: 300;
+}
+
 .temp-toggle-container {
     margin-top: 10px;
     align-items: center;
@@ -134,7 +139,7 @@ body {
 
 .temp-toggle-btn {
     position: relative;
-    width: 40px;
+    width: 30px;
     height: 18px;
     background-color: #3C9DC7;
     border-radius: 20px;
@@ -176,8 +181,6 @@ body {
     }
 }
 
-
-
 //MAIN APP DESIGN - ICON LAYOUT PORTION//
 
 .temp-icons {
@@ -204,6 +207,7 @@ body {
 
 .icon {
     display: flex;
+
 }
 
 .wi {
@@ -213,13 +217,18 @@ body {
 
 .icon-description {
     line-height: 24px;
-    // position: relative;
-    // top: 10px;
+   text-align: left;
+
 }
 
 .icon-description h4 {
     font-size: 12px;
     font-weight: 300;
+}
+
+.icon-description > h3 {
+    font-size: 15px;
+    
 }
 
 
@@ -363,6 +372,12 @@ body {
         padding-top: 150px;
     }
 
+    .temp-toggle-container {
+   
+        width: 40%;
+    
+    }
+
     .search {
         width: 65vw;
     }
@@ -393,7 +408,7 @@ body {
     }
 
     .temp-toggle-container {
-        width: 100%;
+    width: 40%;;
     }
 
     .weather-data {

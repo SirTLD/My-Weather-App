@@ -129,6 +129,11 @@ body {
   font-size: 100px;
 }
 
+.temp-feels {
+  font-size: 14px;
+  font-weight: 300;
+}
+
 .temp-toggle-container {
   margin-top: 10px;
   -webkit-box-align: center;
@@ -149,7 +154,7 @@ body {
 
 .temp-toggle-btn {
   position: relative;
-  width: 40px;
+  width: 30px;
   height: 18px;
   background-color: #3C9DC7;
   border-radius: 20px;
@@ -226,11 +231,16 @@ body {
 
 .icon-description {
   line-height: 24px;
+  text-align: left;
 }
 
 .icon-description h4 {
   font-size: 12px;
   font-weight: 300;
+}
+
+.icon-description > h3 {
+  font-size: 15px;
 }
 
 @media screen and (max-width: 450px) {
@@ -344,6 +354,9 @@ body {
   .main-container-items {
     padding-top: 150px;
   }
+  .temp-toggle-container {
+    width: 40%;
+  }
   .search {
     width: 65vw;
   }
@@ -367,7 +380,7 @@ body {
     width: 40%;
   }
   .temp-toggle-container {
-    width: 100%;
+    width: 40%;
   }
   .weather-data {
     width: 50vw;
