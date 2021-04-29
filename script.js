@@ -68,11 +68,10 @@ mainContent.style.backgroundImage =
 
 // / BUTTON TOGGLE OPERATION
 
-let switchContainer = document.querySelector('.toggle-btn');
+let switchContainer = document.getElementById('toggle-btn');
 
 switchContainer.addEventListener('click', () => {
-  switchContainer.classList.toggle('.active');
-
+  switchContainer.classList.toggle('active');
   console.log('click was done');
 });
 
