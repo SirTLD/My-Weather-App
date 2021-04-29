@@ -61,26 +61,32 @@ let weather = {
 
 // BACKGROUND WEATHER CHANGE
 
-let mainContent = document.querySelector('.main-container');
+let weatherChange = () => {
+  let mainContent = document.querySelector('.main-container');
 
-mainContent.style.backgroundImage =
-  "url('https://source.unsplash.com/1600x900/?weather,sky')";
+  mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${this.main} + weather')`;
+};
+
+weatherChange();
+
+// FORMULA CONVERSION
+
+let tempConversion = () => {
+  // (0°C × 9/5) + 32 = 32°F
+  document.querySelector('.temp-value').innerHTML =
+    Math.round(`${temp}`) + '°C';
+};
+
+console.log(tempConversion);
 
 // / BUTTON TOGGLE OPERATION
 
 let switchContainer = document.querySelector('.toggle-btn');
 
 switchContainer.addEventListener('click', () => {
-  switchContainer.classList.toggle('.active');
-
+  switchContainer.classList.toggle('active');
   console.log('click was done');
 });
-
-// let colorChange = () => {
-//   document.querySelector('.weather-data').style.backgroundColor = 'red';
-// };
-
-// colorChange();
 
 // DATE CHANGE OPERATION
 

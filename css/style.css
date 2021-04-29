@@ -163,6 +163,12 @@ body {
   -o-border-radius: 20px;
   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
           box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 1s ease-in;
+  transition: 1s ease-in;
+  -webkit-transition: 12s ease-in;
+  -moz-transition: 12s ease-in;
+  -ms-transition: 12s ease-in;
+  -o-transition: 12s ease-in;
 }
 
 .toggle-btn > .inner-circle {
@@ -190,7 +196,6 @@ body {
 
 .toggle-btn.active > .inner-circle {
   margin-left: 10px;
-  background-color: #ff04ab;
 }
 
 .temp-icons {
