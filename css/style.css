@@ -152,8 +152,7 @@ body {
   padding: 0 10px;
 }
 
-.temp-toggle-btn {
-  position: relative;
+.toggle-btn {
   width: 30px;
   height: 18px;
   background-color: #3C9DC7;
@@ -166,9 +165,8 @@ body {
           box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.temp-toggle-btn .toggle-circle {
-  position: absolute;
-  left: 0;
+.toggle-btn > .inner-circle {
+  margin-left: 0;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -186,12 +184,13 @@ body {
   -o-transform: scale(1.1);
 }
 
-.temp-toggle-btn .toggle-circle:hover {
+.toggle-btn > .inner-circle:hover {
   cursor: pointer;
 }
 
-.temp-toggle-btn .toggle-circle-active {
-  right: 0;
+.toggle-btn.active > .inner-circle {
+  margin-left: 10px;
+  background-color: #ff04ab;
 }
 
 .temp-icons {

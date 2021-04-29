@@ -68,8 +68,12 @@ mainContent.style.backgroundImage =
 
 // / BUTTON TOGGLE OPERATION
 
-document.querySelector('.toggle-circle').addEventListener('click', function () {
-  this.classList.toggle('toggle-circle-active');
+let switchContainer = document.querySelector('.toggle-btn');
+
+switchContainer.addEventListener('click', () => {
+  switchContainer.classList.toggle('.active');
+
+  console.log('click was done');
 });
 
 // let colorChange = () => {
