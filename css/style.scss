@@ -13,31 +13,29 @@ body {
 
 .main-container {
     height: 100vh;
-    background-image: url('https://source.unsplash.com/1600x900/?weather,sky');
+    // background-image: url('https://source.unsplash.com/1600x900/?weather,sky');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .main-container-items {
-    //position: absolute;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
-    //background-color: rgb(0, 183, 255);
+    // background-color: rgb(0, 183, 255);
     height: 90vh;
     width: 90%;
-   }
+}
 
 //MAIN APP DESIGN - SEARCH SECTION//
 
 .search {
     display: flex;
-    // margin-top: 120px;
-    position: relative;
-    top: 90px;
     margin: 0 auto;
     height: 50px;
     width: 10%;
-    background-color: rgba(29, 29, 29, 0.9);
+    background-color: rgba(29, 29, 29, 0.92);
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -75,10 +73,10 @@ body {
 
 .weather-data {
     margin: 0 auto;
-    background-color: rgba(29, 29, 29, 0.9);
-    height: 55vh;
+    background-color: rgba(29, 29, 29, 0.92);
+    height: 100%;
     width: 30vw;
-    margin-top: 200px;
+    margin-top: 100px;
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -109,12 +107,10 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 20px 85px;
+    text-align: center;
 }
 
 .temp {
-    // display: flex;
-    // flex-direction: column;
-    // background-color: green;
     height: 159px;
     width: 240px;
 }
@@ -123,12 +119,18 @@ body {
     font-size: 100px;
 }
 
+.temp-feels {
+    font-size: 14px;
+    font-weight: 300;
+}
+
 .temp-toggle-container {
     margin-top: 10px;
     align-items: center;
     justify-content: center;
     display: flex;
     width: 100%;
+    // background-color: khaki;
 
 }
 
@@ -136,8 +138,9 @@ body {
     padding: 0 10px;
 }
 
-.temp-toggle-btn {
-    width: 40px;
+.toggle-btn {
+    // position: relative;
+    width: 30px;
     height: 18px;
     background-color: #3C9DC7;
     border-radius: 20px;
@@ -146,24 +149,40 @@ body {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
-
-    .toggle-circle {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -ms-border-radius: 50%;
-        -o-border-radius: 50%;
-        background-color: #E7E7E7;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-    }
 }
 
+.toggle-btn > .inner-circle {    
+    margin-left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: #E7E7E7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    transform: scale(1.1);
+
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+.toggle-btn.active > .inner-circle {
+    margin-left: 10px;
+    background-color: rgb(255, 4, 171);
+}
+
+    
 //MAIN APP DESIGN - ICON LAYOUT PORTION//
 
 .temp-icons {
-    // background-color: pink;
+    // background-color: saddlebrown;
     height: 182px;
     width: 287px;
 }
@@ -174,16 +193,20 @@ body {
     justify-content: space-between;
 }
 
-.temp-icons-top {
-    padding: 20px 10px;
+.temp-icons-top,
+.temp-icons-bottom {
+    padding-left: 15px;
+
 }
 
 .temp-icons-bottom {
     padding-top: 30px;
+    // background-color: lightblue;
 }
 
 .icon {
     display: flex;
+
 }
 
 .wi {
@@ -193,13 +216,18 @@ body {
 
 .icon-description {
     line-height: 24px;
-    // position: relative;
-    // top: 10px;
+    text-align: left;
+
 }
 
 .icon-description h4 {
     font-size: 12px;
     font-weight: 300;
+}
+
+.icon-description>h3 {
+    font-size: 15px;
+
 }
 
 
@@ -232,7 +260,7 @@ body {
     .weather-data {
         width: 80vw;
         height: 75%;
-        margin-top: 120px;
+        margin-top: 60px;
     }
 
     .city-location {
@@ -285,21 +313,18 @@ body {
         height: 100vh;
     }
 
-    .search {
-        top: 20px;
-    }
+    .search {}
 
     .weather-data {
         width: 80vw;
-        height: 80%;
-        margin-top: 50px;
+        height: 85%;
+        margin-top: 30px;
     }
 }
 
 @media screen and (min-width: 540px) {
-    .main-container {
-        height: 100vh;
-        // padding-top: 50px;
+    .main-container-items {
+        padding-top: 140px;
     }
 
     .city-location {
@@ -328,11 +353,28 @@ body {
     }
 }
 
+@media screen and (min-width: 375px) and (max-height: 667px) {
+    .weather-data {
+        height: 72vh;
+    }
+}
+
+@media screen and (min-width: 375px) and (min-height: 812px) {
+    .weather-data {
+        height: 60vh;
+    }
+}
+
 @media screen and (min-width: 768px) {
 
-    .main-container {
-        height: 100vh;
-        // margin-top: 100px;
+    .main-container-items {
+        padding-top: 150px;
+    }
+
+    .temp-toggle-container {
+
+        width: 40%;
+
     }
 
     .search {
@@ -356,8 +398,8 @@ body {
 
 @media screen and (min-width: 1280px) {
 
-    .main-container {
-        padding-top: 50px;
+    .main-container-items {
+        padding-top: 150px;
     }
 
     .search {
@@ -365,10 +407,12 @@ body {
     }
 
     .temp-toggle-container {
-        width: 80%;
+        width: 40%;
+        ;
     }
 
     .weather-data {
+
         width: 50vw;
         height: 45vh;
     }
@@ -376,10 +420,6 @@ body {
 
 
 @media screen and (min-width: 1920px) {
-
-    .main-container {
-        // padding-top: 50px;
-    }
 
     .search {
         width: 30%;
