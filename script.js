@@ -67,98 +67,115 @@ window.addEventListener('load', () => {
     document.querySelector('.city-location').innerText =
       'Search for a Location';
   }
+});
 
-  let weather = {
-    apikey: '&appid=730a4c8462e80f10f220f4ea42071822',
-    apiPath: 'http://api.openweathermap.org/data/2.5/weather?q=',
-    apiUnit: '&units=metric',
+// ---------------------------------
 
-    fetchWeather: function (city) {
-      fetch(this.apiPath + city + this.apikey + this.apiUnit)
-        .then((res) => res.json())
-        .then((data) => {
-          this.displayWeather(data);
-        });
-    },
+let weather = {
+  apikey: '&appid=730a4c8462e80f10f220f4ea42071822',
+  apiPath: 'http://api.openweathermap.org/data/2.5/weather?q=',
+  apiUnit: '&units=metric',
 
-    displayWeather: function (data) {
-      const { name } = data;
+  fetchWeather: function (city) {
+    fetch(this.apiPath + city + this.apikey + this.apiUnit)
+      .then((res) => res.json())
+      .then((data) => {
+        this.displayWeather(data);
+      });
+  },
 
-      const { icon, description, main } = data.weather[0];
+  displayWeather: function (data) {
+    let locationArea = document.querySelector('.city-location');
 
-      const { temp, humidity, feels_like } = data.main;
+    let tempValue = document.querySelector('.temp-value');
 
-      const { speed } = data.wind;
+    let tempFeels = document.querySelector('.feels_value');
 
-      const { country } = data.sys;
+    // let weatherMain = document.querySelector('.icon-1');
 
-      console.log(
-        name,
-        icon,
-        description,
-        main,
-        temp,
-        feels_like,
-        humidity,
-        speed,
-        country
-      );
+    let WeatherDescription = document.querySelector('.icon-1-description');
 
-      let temperatureValue = `${temp}`;
+    let WeatherHumidity = document.querySelector('.icon-2-description');
 
-      document.querySelector(
-        '.city-location'
-      ).innerText = `${name}, ${country}`;
+    let windSpeed = document.querySelector('.icon-3-description');
 
-      document.querySelector(
-        '.icon-logo-1'
-      ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+    let weatherIcon = document.querySelector('.icon-logo-1');
 
-      document.querySelector('.temp-value').innerHTML =
-        Math.round(temperatureValue) + '°C';
+    const { name } = data;
 
-      document.querySelector('.feels_value').innerHTML =
-        Math.round(`${feels_like}`) + '°C';
+    const { icon, description, main } = data.weather[0];
 
-      document.querySelector(
-        '.icon-1-description'
-      ).innerHTML = `${description}`;
+    const { temp, humidity, feels_like } = data.main;
 
-      document.querySelector('.icon-2-description').innerText = `${humidity}%`;
+    const { speed } = data.wind;
 
-      document.querySelector('.icon-3-description').innerHTML =
-        Math.round(`${speed}`) + 'km/h';
-    },
+    const { country } = data.sys;
 
-    search: function () {
-      this.fetchWeather(document.querySelector('.search-field').value);
-    },
-  };
+    console.log(
+      name,
+      icon,
+      description,
+      main,
+      temp,
+      feels_like,
+      humidity,
+      speed,
+      country
+    );
 
-  // SEARCH BAR OPERATION
+    // DOM ELEMENTS FROM API
 
-  document.querySelector('.fa-search').addEventListener('click', function () {
-    weather.search();
+    locationArea.innerText = `${name}, ${country}`;
+
+    tempValue.innerHTML = Math.round(`${temp}`) + '°C';
+
+    tempFeels.innerHTML = Math.round(`${feels_like}`) + '°C';
+
+    // weatherMain.innerText = `${main}`;
+
+    WeatherDescription.innerHTML = `${description}`;
+
+    WeatherHumidity.innerText = `${humidity}%`;
+
+    windSpeed.innerHTML = Math.round(`${speed}`) + 'km/h';
+
+    weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  },
+
+  search: function () {
+    this.fetchWeather(document.querySelector('.search-field').value);
+  },
+};
+
+// ICON CHANGE
+
+let iconChange = () => {};
+
+// SEARCH BAR OPERATION
+
+document.querySelector('.fa-search').addEventListener('click', function () {
+  weather.search();
+});
+
+document
+  .querySelector('.search-field')
+  .addEventListener('keyup', function (event) {
+    if (event.key == 'Enter') {
+      weather.search();
+    }
   });
 
-  document
-    .querySelector('.search-field')
-    .addEventListener('keyup', function (event) {
-      if (event.key == 'Enter') {
-        weather.search();
-      }
-    });
+// BACKGROUND CHANGE
 
-  // BACKGROUND CHANGE
+let weatherChange = () => {
+  let mainContent = document.querySelector('.main-container');
 
-  let weatherChange = () => {
-    let mainContent = document.querySelector('.main-container');
+  mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${this.main} + weather')`;
+};
 
-    mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${this.main} + weather')`;
-  };
+weatherChange();
 
-  weatherChange();
-});
+// -------------------------------------
 
 // GET THE DATE
 
@@ -173,7 +190,7 @@ let switchContainer = document.querySelector('.toggle-btn');
 switchContainer.addEventListener('click', () => {
   switchContainer.classList.toggle('active');
 
-  console.log(this.temperatureValue);
+  // console.log(weather.displayWeather('tempValue'));
 
   console.log('click was done');
 });
