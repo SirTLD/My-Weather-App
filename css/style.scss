@@ -13,28 +13,35 @@ body {
 
 .main-container {
     height: 100vh;
+    width: 100vw;
     // background-image: url('https://source.unsplash.com/1600x900/?weather,sky');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .main-container-items {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    // background-color: rgb(0, 183, 255);
-    height: 90vh;
+    height: 82%;
     width: 90%;
-}
 
-//MAIN APP DESIGN - SEARCH SECTION//
+    @media screen and (max-width: 370px) {
+        height: 90%;
+    }
+
+    @media screen and (min-height: 812px) {
+        height: 70%;
+    }
+}
 
 .search {
     display: flex;
-    margin: 0 auto;
-    height: 50px;
-    width: 10%;
+    width: 100%;
     background-color: rgba(29, 29, 29, 0.92);
     border-radius: 30px;
     -webkit-border-radius: 30px;
@@ -45,7 +52,8 @@ body {
 
 .search-field {
     align-self: center;
-    width: 90%;
+    width: 100%;
+    height: 50px;
     padding-left: 20px;
     outline: none;
     background: none;
@@ -61,22 +69,21 @@ body {
 .fa-search {
     align-self: center;
     color: #fff;
-    font-size: 25px;
+    font-size: 20px;
+    padding-right: 5%;
 
     &:hover {
         cursor: pointer;
     }
 }
 
-//MAIN APP DESIGN - WEATHER SECTION//
-
+/*----------  WEATHER SECTION  ----------*/
 
 .weather-data {
-    margin: 0 auto;
     background-color: rgba(29, 29, 29, 0.92);
     height: 100%;
-    width: 30vw;
-    margin-top: 100px;
+    width: 100%;
+    margin-top: 40px;
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -87,9 +94,13 @@ body {
 
 .city-location {
     text-align: center;
-    padding-top: 50px;
-    font-size: 50px;
+    padding-top: 40px;
+    font-size: 30px;
     font-weight: 300;
+
+    @media screen and (max-width: 370px) {
+        padding-top: 25px;
+    }
 }
 
 .current-date {
@@ -99,14 +110,15 @@ body {
     margin-top: 20px;
 }
 
-//MAIN APP DESIGN - TEMP DATA PORTION//
+/*----------  TEMPERATURE DATA SECTION  ----------*/
 
 .weather-bottom-info {
     align-items: center;
     justify-content: center;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    padding: 20px 85px;
+    padding: 0px 28px;
     text-align: center;
 }
 
@@ -115,8 +127,14 @@ body {
     width: 240px;
 }
 
+.temp-icons {
+    padding-top: 10px;
+    width: 100%;
+}
+
 .temp-value {
-    font-size: 100px;
+    font-size: 70px;
+    margin-top: 20px;
 }
 
 .temp-feels {
@@ -124,14 +142,46 @@ body {
     font-weight: 300;
 }
 
-.temp-toggle-container {
-    margin-top: 10px;
-    align-items: center;
-    justify-content: center;
+.temp-icons-top,
+.temp-icons-bottom {
     display: flex;
+    justify-content: space-between;
     width: 100%;
-    // background-color: khaki;
+}
 
+.temp-icons-bottom {
+    padding-top: 20px;
+}
+
+.icon {
+    display: flex;
+}
+
+.icon-description {
+    line-height: 24px;
+    text-align: left;
+}
+
+.icon-description h4 {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.icon-description>h3 {
+    font-size: 15px;
+}
+
+.wi {
+    font-size: 30px;
+    padding-right: 15px;
+}
+
+.temp-toggle-container {
+    margin-top: 5px;
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    width: 40%;
 }
 
 .temp-units {
@@ -139,7 +189,7 @@ body {
 }
 
 .toggle-btn {
-    //position: relative;
+
     width: 30px;
     height: 18px;
     background-color: #3C9DC7;
@@ -156,7 +206,7 @@ body {
     -o-transition: 12s ease-in;
 }
 
-.toggle-btn > .inner-circle {
+.toggle-btn>.inner-circle {
     margin-left: 0;
     width: 20px;
     height: 20px;
@@ -168,11 +218,15 @@ body {
     background-color: #E7E7E7;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     transform: scale(1.1);
-
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
+    transition: all ease-in-out 300ms;
+    -webkit-transition: all ease-in-out 300ms;
+    -moz-transition: all ease-in-out 300ms;
+    -ms-transition: all ease-in-out 300ms;
+    -o-transition: all ease-in-out 300ms;
 
     &:hover {
         cursor: pointer;
@@ -181,221 +235,73 @@ body {
 
 .toggle-btn.active>.inner-circle {
     margin-left: 10px;
-    // background-color: rgb(255, 4, 171);
 }
 
 
 
+/*----------  MEDIA QUERIES  ----------*/
 
-//MAIN APP DESIGN - ICON LAYOUT PORTION//
-
-.temp-icons {
-    // background-color: saddlebrown;
-    height: 182px;
-    width: 287px;
-}
-
-.temp-icons-top,
-.temp-icons-bottom {
-    display: flex;
-    justify-content: space-between;
-}
-
-.temp-icons-top,
-.temp-icons-bottom {
-    padding-left: 15px;
-
-}
-
-.temp-icons-bottom {
-    padding-top: 30px;
-    // background-color: lightblue;
-}
-
-.icon {
-    display: flex;
-
-}
-
-.wi {
-    font-size: 30px;
-    padding: 0 15px;
-}
-
-.icon-description {
-    line-height: 24px;
-    text-align: left;
-
-}
-
-.icon-description h4 {
-    font-size: 12px;
-    font-weight: 300;
-}
-
-.icon-description>h3 {
-    font-size: 15px;
-
-}
-
-
-
-//MAIN APP DESIGN - MEDIA QUERIES//
-
-@media screen and (max-width: 450px) {
-
-    .main-container {
-        background-image: url('https://source.unsplash.com/1600x900/?weather,sky');
-        background-size: cover;
-        height: 100vh;
-        padding-top: 50px;
-    }
-
-    .search {
-        width: 80vw;
-    }
-
-    .search-field {
-        width: 85%;
-    }
-
-    .fa-search {
-        font-size: 22px;
-    }
-
-    //MAIN APP DESIGN - WEATHER SECTION//
-
-    .weather-data {
-        width: 80vw;
-        height: 75%;
-        margin-top: 60px;
-    }
-
-    .city-location {
-        font-size: 24px;
-    }
-
-    //MAIN APP DESIGN - WEATHER SECTION//
-
-    .weather-bottom-info {
-        display: flex;
-        flex-direction: column;
-        padding-top: 10px;
-    }
-
-    .temp-value {
-        text-align: center;
-        padding-top: 30px;
-        font-size: 65px;
-    }
-
-    .temp-toggle-container {
-        padding-top: 10px;
-    }
-
-    .temp-icons-top,
-    .temp-icons-bottom {
-        align-self: center;
-    }
-
-    .temp-icons-top {
-        padding-top: 30px;
-    }
-
-    //MAIN APP DESIGN - ICON SIZES//
-
-    .icon {
-        width: 90%;
-    }
-
-    .wi {
-        font-size: 26px;
-    }
-}
-
-
-@media screen and (min-width: 360px) and (max-height: 670px) {
-
-    .main-container {
-        // padding-top: 50px;
-        height: 100vh;
-    }
-
-    .search {}
-
-    .weather-data {
-        width: 80vw;
-        height: 85%;
-        margin-top: 30px;
-    }
-}
-
-@media screen and (min-width: 540px) {
-    .main-container-items {
-        padding-top: 140px;
-    }
-
-    .city-location {
-        font-size: 30px;
-    }
-
-    .search {
-        width: 80vw;
-    }
-
-    .weather-data {
-        width: 90vw;
-        height: 50vh;
-    }
-
-    .weather-bottom-info {
-        padding: 30px 30px;
-    }
-
-    .temp-value {
-        font-size: 60px;
-    }
-
-    .temp-icons-top {
-        padding: 10px 4px;
-    }
-}
-
-@media screen and (min-width: 375px) and (max-height: 667px) {
-    .weather-data {
-        height: 72vh;
-    }
-}
-
-@media screen and (min-width: 375px) and (min-height: 812px) {
-    .weather-data {
-        height: 60vh;
-    }
-}
 
 @media screen and (min-width: 768px) {
 
     .main-container-items {
-        padding-top: 150px;
+        padding-top: 30px;
     }
 
     .temp-toggle-container {
-
         width: 40%;
-
     }
 
     .search {
-        width: 65vw;
+        align-self: center;
+        width: 80%;
+    }
+
+    .fa-search {
+        padding-right: 6%;
     }
 
     .weather-data {
-        width: 80vw;
-        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        width: 80%;
+        height: 60%;
+    }
+
+    .city-location {
+        padding-top: 70px;
+    }
+
+    .weather-top-info {
+        // background-color: pink;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
     }
 
     .weather-bottom-info {
-        padding: 45px 60px;
+
+        // background-color: red;
+        flex-direction: row;
+        width: 100%;
+        height: 40%;
+        margin-top: 40px;
+        padding: 0px 30px;
+    }
+
+   
+    .temp-toggle-container {
+        width: 50%;
+    }
+
+
+    .temp {
+        // background-color: green;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+        padding-right: 40px;
     }
 
     .temp-value {
@@ -406,35 +312,48 @@ body {
 
 @media screen and (min-width: 1280px) {
 
-    .main-container-items {
-        padding-top: 150px;
+    .fa-search {
+        padding-right: 25px;
+    }
+    .weather-data {
+            width: 50%;    
     }
 
     .search {
-        width: 40%;
-    }
-
-    .temp-toggle-container {
-        width: 40%;
-        ;
-    }
-
-    .weather-data {
-
-        width: 50vw;
-        height: 45vh;
+        align-self: center;
+        width: 50%;
     }
 }
 
 
 @media screen and (min-width: 1920px) {
 
-    .search {
-        width: 30%;
+    .fa-search {
+        padding-right: 25px;
+    }
+    .weather-data {
+            width: 40%;    
     }
 
+    .search {
+        align-self: center;
+        width: 40%;
+    }
+}
+
+
+@media screen and (min-width: 2500px) {
+
+    .fa-search {
+        padding-right: 25px;
+    }
     .weather-data {
-        width: 40vw;
-        height: 45vh;
+            width: 20%;  
+            height: 35% ; 
+    }
+
+    .search {
+        align-self: center;
+        width: 20%;
     }
 }
