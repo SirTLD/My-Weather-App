@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
         });
     });
   } else {
-    document.querySelector('.city-location').innerText =
+    document.querySelector('.city-location').textContent =
       'Search for a Location';
   }
 
@@ -128,12 +128,26 @@ window.addEventListener('load', () => {
 
       document.querySelector('.icon-3-description').innerHTML =
         Math.round(`${speed}`) + 'km/h';
+
+      //TOGGLE TEMPERATURE SWITCH
+
+      // let switchContainer = document.querySelector('.toggle-btn');
+
+      // switchContainer.addEventListener('click', () => {
+      //   switchContainer.classList.toggle('active');
+
+      //   console.log(this.temperatureValue);
+
+      //   console.log('click was done');
+      // });
     },
 
     search: function () {
       this.fetchWeather(document.querySelector('.search-field').value);
     },
   };
+
+  console.log(weather.search());
 
   // SEARCH BAR OPERATION
 
@@ -173,7 +187,7 @@ let switchContainer = document.querySelector('.toggle-btn');
 switchContainer.addEventListener('click', () => {
   switchContainer.classList.toggle('active');
 
-  console.log(this.temperatureValue);
+  console.log(this.weather.displayWeather(temp));
 
   console.log('click was done');
 });

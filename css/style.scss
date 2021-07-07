@@ -72,6 +72,10 @@ body {
     font-size: 20px;
     padding-right: 5%;
 
+    @media screen and (max-width: 370px) {
+        padding-right: 6%;
+    }
+
     &:hover {
         cursor: pointer;
     }
@@ -287,7 +291,7 @@ body {
         width: 100%;
         height: 40%;
         margin-top: 40px;
-        padding: 0px 30px;
+        padding: 0px 45px;
     }
 
    
@@ -318,12 +322,28 @@ body {
     .weather-data {
             width: 50%;    
     }
-
     .search {
         align-self: center;
         width: 50%;
     }
 }
+
+@media screen and (min-width: 1400px) {
+
+    .fa-search {
+        padding-right: 25px;
+    }
+    .weather-data {
+            width: 45%;
+            height: 65%;    
+    }
+
+    .search {
+        align-self: center;
+        width: 45%;
+    }
+}
+
 
 
 @media screen and (min-width: 1920px) {
@@ -332,12 +352,18 @@ body {
         padding-right: 25px;
     }
     .weather-data {
-            width: 40%;    
+            width: 38%;    
     }
 
     .search {
         align-self: center;
-        width: 40%;
+        width: 38%;
+    }
+
+
+    .weather-bottom-info {
+
+       padding: 0px 70px;
     }
 }
 
