@@ -88,6 +88,9 @@ body {
     height: 100%;
     width: 100%;
     margin-top: 40px;
+    @media screen and (max-width: 370px) {
+        margin-top: 30px;
+    }
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -101,9 +104,8 @@ body {
     padding-top: 40px;
     font-size: 30px;
     font-weight: 300;
-
     @media screen and (max-width: 370px) {
-        padding-top: 25px;
+        padding-top: 30px;
     }
 }
 
@@ -111,7 +113,7 @@ body {
     text-align: center;
     font-size: 14px;
     font-weight: 300;
-    margin-top: 20px;
+    margin-top: 20px;   
 }
 
 /*----------  TEMPERATURE DATA SECTION  ----------*/
@@ -186,6 +188,13 @@ body {
     justify-content: flex-end;
     display: flex;
     width: 40%;
+    @media screen and (max-width: 370px) {
+        padding-left: 20px;
+        width: 60%;
+        .toggle-btn.active>.inner-circle {
+            margin-left: 10px;
+        }
+    }    
 }
 
 .temp-units {
@@ -344,8 +353,6 @@ body {
     }
 }
 
-
-
 @media screen and (min-width: 1920px) {
 
     .fa-search {
@@ -359,7 +366,6 @@ body {
         align-self: center;
         width: 38%;
     }
-
 
     .weather-bottom-info {
 

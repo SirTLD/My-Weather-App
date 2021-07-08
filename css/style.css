@@ -116,6 +116,12 @@ body {
   color: white;
 }
 
+@media screen and (max-width: 370px) {
+  .weather-data {
+    margin-top: 30px;
+  }
+}
+
 .city-location {
   text-align: center;
   padding-top: 40px;
@@ -125,7 +131,7 @@ body {
 
 @media screen and (max-width: 370px) {
   .city-location {
-    padding-top: 25px;
+    padding-top: 30px;
   }
 }
 
@@ -230,6 +236,16 @@ body {
   display: -ms-flexbox;
   display: flex;
   width: 40%;
+}
+
+@media screen and (max-width: 370px) {
+  .temp-toggle-container {
+    padding-left: 20px;
+    width: 60%;
+  }
+  .temp-toggle-container .toggle-btn.active > .inner-circle {
+    margin-left: 10px;
+  }
 }
 
 .temp-units {

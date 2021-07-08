@@ -1,8 +1,14 @@
+/**
+ *
+ * USING GEOLOCATION IF USER ALLOWS
+ *
+ */
+
 const apiKey = '&appid=730a4c8462e80f10f220f4ea42071822';
 const apiPath = 'https://api.openweathermap.org/data/2.5/weather?q=';
 const apiUnit = '&units=metric';
 
-window.addEventListener('load', () => {
+function geolocationQuery() {
   let longitude;
   let latitude;
   let locationArea = document.querySelector('.city-location');
@@ -32,56 +38,99 @@ window.addEventListener('load', () => {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
+          function apiData() {
+            console.log(data);
+            const { name } = data;
 
-          const { name } = data;
+            const { icon, description, main } = data.weather[0];
 
-          const { icon, description, main } = data.weather[0];
+            const { temp, humidity, feels_like } = data.main;
 
-          const { temp, humidity, feels_like } = data.main;
+            const { speed } = data.wind;
 
-          const { speed } = data.wind;
+            const { country } = data.sys;
 
-          const { country } = data.sys;
+            console.log(
+              name,
+              icon,
+              description,
+              main,
+              temp,
+              feels_like,
+              humidity,
+              speed,
+              country
+            );
 
-          // DOM ELEMENTS FROM API
+            let temperatureValue = `${temp}`;
 
-          locationArea.innerText = `${name}, ${country}`;
+            let feels_like_temp = `${feels_like}`;
 
-          tempValue.innerHTML = Math.round(`${temp}`) + '°C';
+            document.querySelector(
+              '.city-location'
+            ).innerText = `${name}, ${country}`;
 
-          tempFeels.innerHTML = Math.round(`${feels_like}`) + '°C';
+            document.querySelector(
+              '.icon-logo-1'
+            ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
-          // weatherMain.innerText = `${main}`;
+            document.querySelector('.temp-value').innerHTML =
+              Math.round(temperatureValue) + '°C';
 
-          WeatherDescription.innerHTML = `${description}`;
+            document.querySelector('.feels_value').innerHTML =
+              Math.round(`${feels_like}`) + '°C';
 
-          WeatherHumidity.innerText = `${humidity}%`;
+            document.querySelector(
+              '.icon-1-description'
+            ).innerHTML = `${description}`;
 
-          windSpeed.innerHTML = Math.round(`${speed}`) + 'km/h';
+            document.querySelector(
+              '.icon-2-description'
+            ).innerText = `${humidity}%`;
 
-          weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+            document.querySelector('.icon-3-description').innerHTML =
+              Math.round(`${speed}`) + 'km/h';
+          }
+
+          apiData();
+
+          /*=============================================
+  =            TOGGLE TEMPERATURE SWITCH        =
+  =============================================*/
+          switchBtn();
         });
     });
-  } else {
-    document.querySelector('.city-location').textContent =
-      'Search for a Location';
   }
 
-  let weather = {
-    apikey: '&appid=730a4c8462e80f10f220f4ea42071822',
-    apiPath: 'http://api.openweathermap.org/data/2.5/weather?q=',
-    apiUnit: '&units=metric',
+  /*=============================================
+  =            BACKGROUND CHANGE FOR GEOLOCATION         =
+  =============================================*/
 
-    fetchWeather: function (city) {
-      fetch(this.apiPath + city + this.apikey + this.apiUnit)
-        .then((res) => res.json())
-        .then((data) => {
-          this.displayWeather(data);
-        });
-    },
+  let weatherChange = () => {
+    let mainContent = document.querySelector('.main-container');
+    mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${this.main} + weather')`;
+  };
 
-    displayWeather: function (data) {
+  weatherChange();
+}
+
+window.addEventListener('load', geolocationQuery);
+
+/**
+ *
+ * USING SEARCH QUERIES
+ *
+ */
+
+function getWeather(city) {
+  const apiKey = '&appid=730a4c8462e80f10f220f4ea42071822';
+  const apiPath = 'https://api.openweathermap.org/data/2.5/weather?q=';
+  const apiUnit = '&units=metric';
+
+  fetch(apiPath + city + apiKey + apiUnit)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
       const { name } = data;
 
       const { icon, description, main } = data.weather[0];
@@ -106,6 +155,8 @@ window.addEventListener('load', () => {
 
       let temperatureValue = `${temp}`;
 
+      let feels_like_temp = `${feels_like}`;
+
       document.querySelector(
         '.city-location'
       ).innerText = `${name}, ${country}`;
@@ -129,65 +180,78 @@ window.addEventListener('load', () => {
       document.querySelector('.icon-3-description').innerHTML =
         Math.round(`${speed}`) + 'km/h';
 
-      //TOGGLE TEMPERATURE SWITCH
+      /*=============================================
+  =            TOGGLE TEMPERATURE SWITCH        =
+  =============================================*/
 
-      // let switchContainer = document.querySelector('.toggle-btn');
+      function switchBtn() {
+        let switchContainer = document.querySelector('.toggle-btn');
 
-      // switchContainer.addEventListener('click', () => {
-      //   switchContainer.classList.toggle('active');
+        function tempconverter() {
+          let celsuis = Math.round(temperatureValue);
+          let farenheit = celsuis * 1.8 + 32;
+          let CelsuisFeels = Math.round(feels_like_temp);
+          let farenheitFeels = CelsuisFeels * 1.8 + 32;
 
-      //   console.log(this.temperatureValue);
+          document.querySelector('.temp-value').innerHTML =
+            `${Math.round(farenheit)}` + '°F';
+          document.querySelector('.feels_value').innerHTML =
+            `${Math.round(farenheitFeels)}` + '°F';
+        }
 
-      //   console.log('click was done');
-      // });
-    },
+        function normalTemp() {
+          let celsuis = Math.round(temperatureValue);
+          let celsuisFeels = Math.round(feels_like_temp);
+          let farenheit = celsuis * 1.8 + 32;
 
-    search: function () {
-      this.fetchWeather(document.querySelector('.search-field').value);
-    },
-  };
+          document.querySelector('.temp-value').innerHTML =
+            `${Math.round(celsuis)}` + '°C';
+          document.querySelector('.feels_value').innerHTML =
+            `${Math.round(celsuisFeels)}` + '°C';
+        }
 
-  console.log(weather.search());
-
-  // SEARCH BAR OPERATION
-
-  document.querySelector('.fa-search').addEventListener('click', function () {
-    weather.search();
-  });
-
-  document
-    .querySelector('.search-field')
-    .addEventListener('keyup', function (event) {
-      if (event.key == 'Enter') {
-        weather.search();
+        switchContainer.addEventListener('click', () => {
+          switchContainer.classList.toggle('active');
+          if (switchContainer.className.includes('active')) {
+            tempconverter();
+          } else {
+            normalTemp();
+          }
+        });
       }
+
+      switchBtn();
     });
+}
 
-  // BACKGROUND CHANGE
+getWeather();
 
-  let weatherChange = () => {
-    let mainContent = document.querySelector('.main-container');
+function searchCity() {
+  getWeather(document.querySelector('.search-field').value);
+}
 
-    mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${this.main} + weather')`;
-  };
+searchCity();
 
-  weatherChange();
+/*=============================================
+  =            SEARCH BAR OPERATION       =
+  =============================================*/
+
+document.querySelector('.fa-search').addEventListener('click', function () {
+  weather.search();
 });
 
-// GET THE DATE
+document
+  .querySelector('.search-field')
+  .addEventListener('keyup', function (event) {
+    if (event.key == 'Enter') {
+      searchCity();
+    }
+  });
+
+/*=============================================
+  =            GET THE DATE      =
+  =============================================*/
 
 const today = moment().format('LL');
 
 document.querySelector('.current-date').innerHTML = today;
-
-// TOGGLE TEMPERATURE SWITCH
-
-let switchContainer = document.querySelector('.toggle-btn');
-
-switchContainer.addEventListener('click', () => {
-  switchContainer.classList.toggle('active');
-
-  console.log(this.weather.displayWeather(temp));
-
-  console.log('click was done');
-});
