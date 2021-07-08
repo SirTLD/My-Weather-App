@@ -66,6 +66,8 @@ function geolocationQuery() {
 
             let feels_like_temp = `${feels_like}`;
 
+            let weatherDesc = `${description}`;
+
             document.querySelector(
               '.city-location'
             ).innerText = `${name}, ${country}`;
@@ -108,7 +110,10 @@ function geolocationQuery() {
 
   let weatherChange = () => {
     let mainContent = document.querySelector('.main-container');
-    mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${this.main} + weather')`;
+    mainContent.style.backgroundSize = 'cover';
+    mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${
+      document.querySelector('.search-field').value
+    } + weather')`;
   };
 
   weatherChange();
@@ -240,6 +245,20 @@ function getWeather(city) {
 
       switchBtn();
     });
+
+  /*=============================================
+  =            BACKGROUND CHANGE FOR SEARCH         =
+  =============================================*/
+
+  let weatherChange = () => {
+    let mainContent = document.querySelector('.main-container');
+    mainContent.style.backgroundSize = 'cover';
+    mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${
+      document.querySelector('.search-field').value
+    } + weather')`;
+  };
+
+  weatherChange();
 }
 
 getWeather();
