@@ -157,6 +157,8 @@ function getWeather(city) {
 
       let feels_like_temp = `${feels_like}`;
 
+      let windSpeed = `${speed}`;
+
       document.querySelector(
         '.city-location'
       ).innerText = `${name}, ${country}`;
@@ -210,12 +212,28 @@ function getWeather(city) {
             `${Math.round(celsuisFeels)}` + '°C';
         }
 
+        function milePerHour() {
+          let windSpeedValue = Math.round(windSpeed);
+          let mphConversion = windSpeedValue / 0.621371;
+
+          document.querySelector('.icon-3-description').innerHTML =
+            `${Math.round(mphConversion)}` + 'mph';
+        }
+
+        function kiloPerHour() {
+          let windSpeedValue = Math.round(windSpeed);
+          document.querySelector('.icon-3-description').innerHTML =
+            windSpeedValue + 'km/h';
+        }
+
         switchContainer.addEventListener('click', () => {
           switchContainer.classList.toggle('active');
           if (switchContainer.className.includes('active')) {
             tempconverter();
+            milePerHour();
           } else {
             normalTemp();
+            kiloPerHour();
           }
         });
       }
