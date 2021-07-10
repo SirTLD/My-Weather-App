@@ -126,6 +126,8 @@ body {
     justify-content: space-between;
     padding: 0px 28px;
     text-align: center;
+   
+    
     
 }
 
@@ -135,17 +137,28 @@ body {
 }
 
 .temp-icons {
+    
     padding-top: 10px;
     width: 100%;
     @media screen and (max-width: 375px) {
         width: 95%;
         
     }
+
+    @media screen and (width: 414px) {
+        padding-top: 60px
+    }
+
+    
 }
 
 .temp-value {
     font-size: 70px;
     margin-top: 20px;
+
+    @media screen and (width: 414px) {
+        margin-top: 60px;
+    }
 }
 
 .temp-feels {

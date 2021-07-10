@@ -180,9 +180,21 @@ body {
   }
 }
 
+@media screen and (width: 414px) {
+  .temp-icons {
+    padding-top: 60px;
+  }
+}
+
 .temp-value {
   font-size: 70px;
   margin-top: 20px;
+}
+
+@media screen and (width: 414px) {
+  .temp-value {
+    margin-top: 60px;
+  }
 }
 
 .temp-feels {
