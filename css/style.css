@@ -174,13 +174,13 @@ body {
   width: 100%;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (min-width: 375px) {
   .temp-icons {
     width: 95%;
   }
 }
 
-@media screen and (width: 414px) {
+@media screen and (min-width: 414px) {
   .temp-icons {
     padding-top: 60px;
   }
