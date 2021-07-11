@@ -8,6 +8,8 @@ const apiKey = '&appid=730a4c8462e80f10f220f4ea42071822';
 const apiPath = 'https://api.openweathermap.org/data/2.5/weather?q=';
 const apiUnit = '&units=metric';
 
+window.addEventListener('load', geolocationQuery);
+
 function geolocationQuery() {
   let longitude;
   let latitude;
@@ -16,8 +18,6 @@ function geolocationQuery() {
   let tempValue = document.querySelector('.temp-value');
 
   let tempFeels = document.querySelector('.feels_value');
-
-  // let weatherMain = document.querySelector('.icon-1');
 
   let WeatherDescription = document.querySelector('.icon-1-description');
 
@@ -72,10 +72,6 @@ function geolocationQuery() {
               '.city-location'
             ).innerText = `${name}, ${country}`;
 
-            document.querySelector(
-              '.icon-logo-1'
-            ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
             document.querySelector('.temp-value').innerHTML =
               Math.round(temperatureValue) + '°C';
 
@@ -99,23 +95,85 @@ function geolocationQuery() {
           /*=============================================
   =            TOGGLE TEMPERATURE SWITCH        =
   =============================================*/
+
+          function switchBtn() {
+            let switchContainer = document.querySelector('.toggle-btn');
+
+            function tempconverter() {
+              let celsuis = Math.round(temperatureValue);
+              let farenheit = celsuis * 1.8 + 32;
+              let CelsuisFeels = Math.round(feels_like_temp);
+              let farenheitFeels = CelsuisFeels * 1.8 + 32;
+
+              document.querySelector('.temp-value').innerHTML =
+                `${Math.round(farenheit)}` + '°F';
+              document.querySelector('.feels_value').innerHTML =
+                `${Math.round(farenheitFeels)}` + '°F';
+            }
+
+            function normalTemp() {
+              let celsuis = Math.round(temperatureValue);
+              let celsuisFeels = Math.round(feels_like_temp);
+              let farenheit = celsuis * 1.8 + 32;
+
+              document.querySelector('.temp-value').innerHTML =
+                `${Math.round(celsuis)}` + '°C';
+              document.querySelector('.feels_value').innerHTML =
+                `${Math.round(celsuisFeels)}` + '°C';
+            }
+
+            function milePerHour() {
+              let windSpeedValue = Math.round(windSpeed);
+              let mphConversion = windSpeedValue / 0.621371;
+
+              document.querySelector('.icon-3-description').innerHTML =
+                `${Math.round(mphConversion)}` + 'mph';
+            }
+
+            function kiloPerHour() {
+              let windSpeedValue = Math.round(windSpeed);
+              document.querySelector('.icon-3-description').innerHTML =
+                windSpeedValue + 'km/h';
+            }
+
+            switchContainer.addEventListener('click', () => {
+              switchContainer.classList.toggle('active');
+              if (switchContainer.className.includes('active')) {
+                tempconverter();
+                milePerHour();
+              } else {
+                normalTemp();
+                kiloPerHour();
+              }
+            });
+          }
           switchBtn();
         });
+
+      iconChange();
     });
   }
 
+  if (!navigator.geolocation) {
+    alert('Please Enter City');
+  }
   /*=============================================
-  =            BACKGROUND CHANGE FOR GEOLOCATION         =
+  =            BACKGROUND CHANGE FOR SEARCH         =
   =============================================*/
 
-  let weatherChange = () => {
+  function weatherChange() {
     let mainContent = document.querySelector('.main-container');
     mainContent.style.backgroundSize = 'cover';
-    mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${
-      document.querySelector('.search-field').value
-    } + weather')`;
-  };
-
+    if (window.innerWidth > '1280px') {
+      mainContent.style.backgroundImage = `url('https://source.unsplash.com/1200x900/?${
+        document.querySelector('.search-field').value
+      })`;
+    } else {
+      mainContent.style.backgroundImage = `url('https://source.unsplash.com/500x800/?${
+        document.querySelector('.search-field').value
+      }')`;
+    }
+  }
   weatherChange();
 }
 
@@ -158,19 +216,25 @@ function getWeather(city) {
         country
       );
 
+      let weatherTitle = `${description}`;
+
       let temperatureValue = `${temp}`;
 
       let feels_like_temp = `${feels_like}`;
 
       let windSpeed = `${speed}`;
 
+      let iconLogo = `${icon}`;
+
+      let mainWeather = `${main}`;
+
       document.querySelector(
         '.city-location'
       ).innerText = `${name}, ${country}`;
 
-      document.querySelector(
-        '.icon-logo-1'
-      ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+      // document.querySelector(
+      //   '.icon-logo-1'
+      // ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
       document.querySelector('.temp-value').innerHTML =
         Math.round(temperatureValue) + '°C';
@@ -244,21 +308,88 @@ function getWeather(city) {
       }
 
       switchBtn();
-    });
 
-  /*=============================================
+      /*=============================================
   =            BACKGROUND CHANGE FOR SEARCH         =
   =============================================*/
 
-  let weatherChange = () => {
-    let mainContent = document.querySelector('.main-container');
-    mainContent.style.backgroundSize = 'cover';
-    mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${
-      document.querySelector('.search-field').value
-    } + weather')`;
-  };
+      function weatherChange() {
+        let mainContent = document.querySelector('.main-container');
+        mainContent.style.backgroundSize = 'cover';
+        if (window.innerWidth > '1280px') {
+          mainContent.style.backgroundImage = `url('https://source.unsplash.com/1200x900/?${
+            document.querySelector('.search-field').value
+          })`;
+        } else {
+          mainContent.style.backgroundImage = `url('https://source.unsplash.com/600x800/?${
+            document.querySelector('.search-field').value
+          }')`;
+        }
+      }
 
-  weatherChange();
+      weatherChange();
+
+      /*=============================================
+  =           WEATHER ICON CHANGE      =
+  =============================================*/
+
+      function iconChange() {
+        let iconShow = document.querySelector('.icon-logo-1');
+
+        if (mainWeather.includes('Clouds')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-cloudy"></i>`;
+        }
+
+        if (mainWeather.includes('Rain')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-day-rain"></i>`;
+        }
+
+        if (mainWeather.includes('Snow')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-day-snow"></i>`;
+        }
+
+        if (mainWeather.includes('Clear')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-day-sunny"></i>`;
+        }
+
+        if (mainWeather.includes('Thunderstorm')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-thunderstorm"></i>`;
+        }
+
+        if (mainWeather.includes('Smoke')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-smoke"></i>`;
+        }
+
+        if (mainWeather.includes('Fog')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-fog"></i>`;
+        }
+
+        if (mainWeather.includes('Tornado')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-tornado"></i>`;
+        }
+
+        if (mainWeather.includes('Sand')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-sandstorm"></i>`;
+        }
+
+        if (mainWeather.includes('Dust')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-dust"></i>`;
+        }
+
+        if (mainWeather.includes('Ash')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-volcano"></i>`;
+        }
+
+        if (mainWeather.includes('Drizzle')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-showers"></i>`;
+        }
+        if (mainWeather.includes('Mist')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-rain-mix"></i>`;
+        }
+      }
+
+      iconChange();
+    });
 }
 
 getWeather();

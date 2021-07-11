@@ -88,9 +88,11 @@ body {
     height: 100%;
     width: 100%;
     margin-top: 40px;
+
     @media screen and (max-width: 370px) {
         margin-top: 30px;
     }
+
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -104,6 +106,7 @@ body {
     padding-top: 40px;
     font-size: 30px;
     font-weight: 300;
+
     @media screen and (max-width: 370px) {
         padding-top: 30px;
     }
@@ -113,7 +116,7 @@ body {
     text-align: center;
     font-size: 14px;
     font-weight: 300;
-    margin-top: 20px;   
+    margin-top: 20px;
 }
 
 /*----------  TEMPERATURE DATA SECTION  ----------*/
@@ -126,9 +129,9 @@ body {
     justify-content: space-between;
     padding: 0px 28px;
     text-align: center;
-   
-    
-    
+
+
+
 }
 
 .temp {
@@ -137,19 +140,20 @@ body {
 }
 
 .temp-icons {
-    
+
     padding-top: 10px;
     width: 100%;
+
     @media screen and (max-width: 375px) {
         width: 95%;
-        
+
     }
 
     @media screen and (width: 414px) {
         padding-top: 60px
     }
 
-    
+
 }
 
 .temp-value {
@@ -206,13 +210,15 @@ body {
     justify-content: flex-end;
     display: flex;
     width: 40%;
+
     @media screen and (max-width: 370px) {
         padding-left: 20px;
         width: 60%;
+
         .toggle-btn.active>.inner-circle {
             margin-left: 10px;
         }
-    }    
+    }
 }
 
 .temp-units {
@@ -273,7 +279,7 @@ body {
 /*----------  MEDIA QUERIES  ----------*/
 
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 766px) {
 
     .main-container-items {
         padding-top: 30px;
@@ -321,7 +327,7 @@ body {
         padding: 0px 45px;
     }
 
-   
+
     .temp-toggle-container {
         width: 50%;
     }
@@ -341,14 +347,39 @@ body {
 }
 
 
+@media screen and (min-width: 1024px) {
+    .search {
+        width: 65%;
+    }
+
+    .weather-data {
+        width: 65%;
+        height: 70%;
+    }
+}
+
+@media screen and (min-width: 1194px) {
+    .search {
+        width: 55%;
+    }
+
+    .weather-data {
+        width: 55%;
+        height: 70%;
+    }
+}
+
+
 @media screen and (min-width: 1280px) {
 
     .fa-search {
         padding-right: 25px;
     }
+
     .weather-data {
-            width: 50%;    
+        width: 50%;
     }
+
     .search {
         align-self: center;
         width: 50%;
@@ -360,9 +391,10 @@ body {
     .fa-search {
         padding-right: 25px;
     }
+
     .weather-data {
-            width: 45%;
-            height: 65%;    
+        width: 45%;
+        height: 65%;
     }
 
     .search {
@@ -376,8 +408,9 @@ body {
     .fa-search {
         padding-right: 25px;
     }
+
     .weather-data {
-            width: 38%;    
+        width: 38%;
     }
 
     .search {
@@ -387,7 +420,7 @@ body {
 
     .weather-bottom-info {
 
-       padding: 0px 70px;
+        padding: 0px 70px;
     }
 }
 
@@ -397,9 +430,10 @@ body {
     .fa-search {
         padding-right: 25px;
     }
+
     .weather-data {
-            width: 20%;  
-            height: 35% ; 
+        width: 20%;
+        height: 35%;
     }
 
     .search {

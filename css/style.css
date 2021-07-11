@@ -322,7 +322,7 @@ body {
 }
 
 /*----------  MEDIA QUERIES  ----------*/
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 766px) {
   .main-container-items {
     padding-top: 30px;
   }
@@ -386,6 +386,26 @@ body {
   }
   .temp-value {
     font-size: 80px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .search {
+    width: 65%;
+  }
+  .weather-data {
+    width: 65%;
+    height: 70%;
+  }
+}
+
+@media screen and (min-width: 1194px) {
+  .search {
+    width: 55%;
+  }
+  .weather-data {
+    width: 55%;
+    height: 70%;
   }
 }
 
