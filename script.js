@@ -25,8 +25,6 @@ function geolocationQuery() {
 
   let windSpeed = document.querySelector('.icon-3-description');
 
-  let weatherIcon = document.querySelector('.icon-logo-1');
-
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
       longitude = position.coords.longitude;
