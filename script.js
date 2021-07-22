@@ -1,8 +1,4 @@
-/**
- *
- * USING GEOLOCATION IF USER ALLOWS
- *
- */
+// USING GEOLOCATION
 
 const apiKey = '&appid=730a4c8462e80f10f220f4ea42071822';
 const apiPath = 'https://api.openweathermap.org/data/2.5/weather?q=';
@@ -13,17 +9,6 @@ window.addEventListener('load', geolocationQuery);
 function geolocationQuery() {
   let longitude;
   let latitude;
-  let locationArea = document.querySelector('.city-location');
-
-  let tempValue = document.querySelector('.temp-value');
-
-  let tempFeels = document.querySelector('.feels_value');
-
-  let WeatherDescription = document.querySelector('.icon-1-description');
-
-  let WeatherHumidity = document.querySelector('.icon-2-description');
-
-  let windSpeed = document.querySelector('.icon-3-description');
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -90,11 +75,9 @@ function geolocationQuery() {
 
           apiData();
 
-          /*=============================================
-  =            TOGGLE TEMPERATURE SWITCH        =
-  =============================================*/
+          // TOGGLE TEMPERATURE SWITCH
 
-          function switchBtn() {
+          let switchBtn = () => {
             let switchContainer = document.querySelector('.toggle-btn');
 
             function tempconverter() {
@@ -144,22 +127,77 @@ function geolocationQuery() {
                 kiloPerHour();
               }
             });
-          }
+          };
           switchBtn();
-        });
 
-      iconChange();
+          //  WEATHER ICON CHANGE
+
+          function iconChange() {
+            let iconShow = document.querySelector('.icon-logo-1');
+
+            if (mainWeather.includes('Clouds')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-cloudy"></i>`;
+            }
+
+            if (mainWeather.includes('Rain')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-day-rain"></i>`;
+            }
+
+            if (mainWeather.includes('Snow')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-day-snow"></i>`;
+            }
+
+            if (mainWeather.includes('Clear')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-day-sunny"></i>`;
+            }
+
+            if (mainWeather.includes('Thunderstorm')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-thunderstorm"></i>`;
+            }
+
+            if (mainWeather.includes('Smoke')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-smoke"></i>`;
+            }
+
+            if (mainWeather.includes('Fog')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-fog"></i>`;
+            }
+
+            if (mainWeather.includes('Tornado')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-tornado"></i>`;
+            }
+
+            if (mainWeather.includes('Sand')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-sandstorm"></i>`;
+            }
+
+            if (mainWeather.includes('Dust')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-dust"></i>`;
+            }
+
+            if (mainWeather.includes('Ash')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-volcano"></i>`;
+            }
+
+            if (mainWeather.includes('Drizzle')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-showers"></i>`;
+            }
+            if (mainWeather.includes('Mist')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-rain-mix"></i>`;
+            }
+            if (mainWeather.includes('Haze')) {
+              iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-day-haze"></i>`;
+            }
+          }
+
+          iconChange();
+        });
     });
   }
 
-  if (!navigator.geolocation) {
-    alert('Please Enter City');
-  }
-  /*=============================================
-  =            BACKGROUND CHANGE FOR SEARCH         =
-  =============================================*/
+  // BACKGROUND CHANGE FOR SEARCH
 
-  function weatherChange() {
+  let weatherChange = () => {
     let mainContent = document.querySelector('.main-container');
     mainContent.style.backgroundSize = 'cover';
     if (window.innerWidth > '1280px') {
@@ -171,23 +209,13 @@ function geolocationQuery() {
         document.querySelector('.search-field').value
       }')`;
     }
-  }
+  };
   weatherChange();
 }
 
-window.addEventListener('load', geolocationQuery);
-
-/**
- *
- * USING SEARCH QUERIES
- *
- */
+//USING SEARCH QUERIES
 
 function getWeather(city) {
-  const apiKey = '&appid=730a4c8462e80f10f220f4ea42071822';
-  const apiPath = 'https://api.openweathermap.org/data/2.5/weather?q=';
-  const apiUnit = '&units=metric';
-
   fetch(apiPath + city + apiKey + apiUnit)
     .then((res) => res.json())
     .then((data) => {
@@ -230,10 +258,6 @@ function getWeather(city) {
         '.city-location'
       ).innerText = `${name}, ${country}`;
 
-      // document.querySelector(
-      //   '.icon-logo-1'
-      // ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
       document.querySelector('.temp-value').innerHTML =
         Math.round(temperatureValue) + '°C';
 
@@ -249,11 +273,9 @@ function getWeather(city) {
       document.querySelector('.icon-3-description').innerHTML =
         Math.round(`${speed}`) + 'km/h';
 
-      /*=============================================
-  =            TOGGLE TEMPERATURE SWITCH        =
-  =============================================*/
+      //TOGGLE TEMPERATURE SWITCH
 
-      function switchBtn() {
+      let switchBtn = () => {
         let switchContainer = document.querySelector('.toggle-btn');
 
         function tempconverter() {
@@ -303,13 +325,11 @@ function getWeather(city) {
             kiloPerHour();
           }
         });
-      }
+      };
 
       switchBtn();
 
-      /*=============================================
-  =            BACKGROUND CHANGE FOR SEARCH         =
-  =============================================*/
+      //BACKGROUND CHANGE FOR SEARCH
 
       function weatherChange() {
         let mainContent = document.querySelector('.main-container');
@@ -327,9 +347,7 @@ function getWeather(city) {
 
       weatherChange();
 
-      /*=============================================
-  =           WEATHER ICON CHANGE      =
-  =============================================*/
+      //  WEATHER ICON CHANGE
 
       function iconChange() {
         let iconShow = document.querySelector('.icon-logo-1');
@@ -384,6 +402,9 @@ function getWeather(city) {
         if (mainWeather.includes('Mist')) {
           iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-rain-mix"></i>`;
         }
+        if (mainWeather.includes('Haze')) {
+          iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-day-haze"></i>`;
+        }
       }
 
       iconChange();
@@ -392,19 +413,13 @@ function getWeather(city) {
 
 getWeather();
 
-function searchCity() {
+let searchCity = () => {
   getWeather(document.querySelector('.search-field').value);
-}
+};
 
-searchCity();
+//  SEARCH BAR OPERATION
 
-/*=============================================
-  =            SEARCH BAR OPERATION       =
-  =============================================*/
-
-document.querySelector('.fa-search').addEventListener('click', function () {
-  weather.search();
-});
+document.querySelector('.fa-search').addEventListener('click', searchCity);
 
 document
   .querySelector('.search-field')
@@ -414,9 +429,9 @@ document
     }
   });
 
-/*=============================================
-  =            GET THE DATE      =
-  =============================================*/
+searchCity();
+
+// GET THE DATE
 
 const today = moment().format('LL');
 
