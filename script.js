@@ -132,7 +132,7 @@ function geolocationQuery() {
 
           //  WEATHER ICON CHANGE
 
-          function iconChange() {
+          let iconChange = () => {
             let iconShow = document.querySelector('.icon-logo-1');
 
             if (mainWeather.includes('Clouds')) {
@@ -188,7 +188,7 @@ function geolocationQuery() {
             if (mainWeather.includes('Haze')) {
               iconShow.innerHTML = `<i id='iconDisplay'class="wi wi-day-haze"></i>`;
             }
-          }
+          };
 
           iconChange();
         });
