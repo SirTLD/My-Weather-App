@@ -137,6 +137,7 @@ body {
 .temp {
     height: 159px;
     width: 240px;
+    
 }
 
 .temp-icons {
@@ -149,7 +150,7 @@ body {
 
     }
 
-    @media screen and (min-width: 414px) {
+    @media screen and (width: 414px) {
         padding-top: 60px
     }
 
@@ -159,10 +160,6 @@ body {
 .temp-value {
     font-size: 70px;
     margin-top: 20px;
-
-    @media screen and (width: 414px) {
-        margin-top: 60px;
-    }
 }
 
 .temp-feels {
@@ -319,12 +316,13 @@ body {
 
     .weather-bottom-info {
 
-        // background-color: red;
+     
         flex-direction: row;
         width: 100%;
         height: 40%;
         margin-top: 40px;
         padding: 0px 45px;
+        // justify-content: space-between;
     }
 
 
@@ -334,11 +332,17 @@ body {
 
 
     .temp {
-        // background-color: green;
-        width: 50%;
+        
+        width: 350px;
         height: 100%;
         margin: 0;
-        padding-right: 40px;
+        // padding-right: 40px;
+        // background-color: red;
+    }
+
+    .temp-icons {
+        margin-left: 40px;
+        // background-color: pink;
     }
 
     .temp-value {
@@ -432,12 +436,40 @@ body {
     }
 
     .weather-data {
-        width: 20%;
+        width: 28%;
         height: 35%;
     }
 
     .search {
         align-self: center;
-        width: 20%;
+        width: 28%;
+    }
+}
+
+@media screen and (min-width: 2800px) {
+
+
+    .weather-data {
+        width: 25%;
+            }
+
+    .search {
+        align-self: center;
+        width: 25%;
+    }
+}
+
+
+
+@media screen and (min-width: 3000px) {
+
+
+    .weather-data {
+        width: 24%;
+            }
+
+    .search {
+        align-self: center;
+        width: 24%;
     }
 }

@@ -180,7 +180,7 @@ body {
   }
 }
 
-@media screen and (min-width: 414px) {
+@media screen and (width: 414px) {
   .temp-icons {
     padding-top: 60px;
   }
@@ -189,12 +189,6 @@ body {
 .temp-value {
   font-size: 70px;
   margin-top: 20px;
-}
-
-@media screen and (width: 414px) {
-  .temp-value {
-    margin-top: 60px;
-  }
 }
 
 .temp-feels {
@@ -379,10 +373,12 @@ body {
     width: 50%;
   }
   .temp {
-    width: 50%;
+    width: 350px;
     height: 100%;
     margin: 0;
-    padding-right: 40px;
+  }
+  .temp-icons {
+    margin-left: 40px;
   }
   .temp-value {
     font-size: 80px;
@@ -463,14 +459,38 @@ body {
     padding-right: 25px;
   }
   .weather-data {
-    width: 20%;
+    width: 28%;
     height: 35%;
   }
   .search {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
-    width: 20%;
+    width: 28%;
+  }
+}
+
+@media screen and (min-width: 2800px) {
+  .weather-data {
+    width: 25%;
+  }
+  .search {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  .weather-data {
+    width: 24%;
+  }
+  .search {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: 24%;
   }
 }
 /*# sourceMappingURL=style.css.map */

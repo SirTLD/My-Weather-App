@@ -7,13 +7,13 @@ const apiUnit = '&units=metric';
 window.addEventListener('load', geolocationQuery);
 
 function geolocationQuery() {
-  let longitude;
-  let latitude;
+  // let longitude;
+  // let latitude;
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
-      longitude = position.coords.longitude;
-      latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
+      let latitude = position.coords.latitude;
       const locationPath = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}${apiKey}${apiUnit}`;
 
       fetch(locationPath)
@@ -24,15 +24,10 @@ function geolocationQuery() {
           function apiData() {
             console.log(data);
             const { name } = data;
-
             const { icon, description, main } = data.weather[0];
-
             const { temp, humidity, feels_like } = data.main;
-
             const { speed } = data.wind;
-
             const { country } = data.sys;
-
             console.log(
               name,
               icon,
@@ -128,6 +123,7 @@ function geolocationQuery() {
               }
             });
           };
+
           switchBtn();
 
           //  WEATHER ICON CHANGE
@@ -217,9 +213,10 @@ function geolocationQuery() {
 
 function getWeather(city) {
   fetch(apiPath + city + apiKey + apiUnit)
+    // let searchPath = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    // fetch(searchPath)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       const { name } = data;
 
       const { icon, description, main } = data.weather[0];
