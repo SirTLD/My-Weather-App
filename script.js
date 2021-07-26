@@ -7,9 +7,6 @@ const apiUnit = '&units=metric';
 window.addEventListener('load', geolocationQuery);
 
 function geolocationQuery() {
-  // let longitude;
-  // let latitude;
-
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
       let longitude = position.coords.longitude;
@@ -124,8 +121,6 @@ function geolocationQuery() {
             });
           };
 
-          switchBtn();
-
           //  WEATHER ICON CHANGE
 
           let iconChange = () => {
@@ -188,6 +183,8 @@ function geolocationQuery() {
 
           iconChange();
         });
+
+      switchBtn();
     });
   }
 
@@ -196,8 +193,8 @@ function geolocationQuery() {
   let weatherChange = () => {
     let mainContent = document.querySelector('.main-container');
     mainContent.style.backgroundSize = 'cover';
-    if (window.innerWidth > '1280px') {
-      mainContent.style.backgroundImage = `url('https://source.unsplash.com/1200x900/?${
+    if (`window.innerWidth > '1280px'`) {
+      mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${
         document.querySelector('.search-field').value
       })`;
     } else {
@@ -213,8 +210,6 @@ function geolocationQuery() {
 
 function getWeather(city) {
   fetch(apiPath + city + apiKey + apiUnit)
-    // let searchPath = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-    // fetch(searchPath)
     .then((res) => res.json())
     .then((data) => {
       const { name } = data;
@@ -328,20 +323,19 @@ function getWeather(city) {
 
       //BACKGROUND CHANGE FOR SEARCH
 
-      function weatherChange() {
+      let weatherChange = () => {
         let mainContent = document.querySelector('.main-container');
         mainContent.style.backgroundSize = 'cover';
-        if (window.innerWidth > '1280px') {
-          mainContent.style.backgroundImage = `url('https://source.unsplash.com/1200x900/?${
+        if (`window.innerWidth > '1280px'`) {
+          mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${
             document.querySelector('.search-field').value
           })`;
         } else {
-          mainContent.style.backgroundImage = `url('https://source.unsplash.com/600x800/?${
+          mainContent.style.backgroundImage = `url('https://source.unsplash.com/500x800/?${
             document.querySelector('.search-field').value
           }')`;
         }
-      }
-
+      };
       weatherChange();
 
       //  WEATHER ICON CHANGE

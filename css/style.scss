@@ -14,7 +14,6 @@ body {
 .main-container {
     height: 100vh;
     width: 100vw;
-    // background-image: url('https://source.unsplash.com/1600x900/?weather,sky');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -414,12 +413,12 @@ body {
     }
 
     .weather-data {
-        width: 38%;
+        width: 40%;
     }
 
     .search {
         align-self: center;
-        width: 38%;
+        width: 40%;
     }
 
     .weather-bottom-info {
