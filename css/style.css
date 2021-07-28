@@ -426,14 +426,14 @@ body {
     padding-right: 25px;
   }
   .weather-data {
-    width: 45%;
-    height: 65%;
+    width: 50%;
+    height: 68%;
   }
   .search {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
-    width: 45%;
+    width: 50%;
   }
 }
 
