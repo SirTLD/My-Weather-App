@@ -26,6 +26,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-image: url("https://unsplash.it/1200/900");
 }
 
 .main-container-items {
@@ -459,14 +460,14 @@ body {
     padding-right: 25px;
   }
   .weather-data {
-    width: 28%;
-    height: 35%;
+    width: 30%;
+    height: 37%;
   }
   .search {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
-    width: 28%;
+    width: 30%;
   }
 }
 
@@ -478,7 +479,7 @@ body {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
-    width: 25%;
+    width: 28%;
   }
 }
 

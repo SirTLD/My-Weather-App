@@ -21,6 +21,8 @@ body {
     justify-content: center;
     align-items: center;
 
+    background-image: url('https://unsplash.it/1200/900');
+
 }
 
 .main-container-items {
@@ -435,13 +437,13 @@ body {
     }
 
     .weather-data {
-        width: 28%;
-        height: 35%;
+        width: 30%;
+        height: 37%;
     }
 
     .search {
         align-self: center;
-        width: 28%;
+        width: 30%;
     }
 }
 
@@ -454,7 +456,7 @@ body {
 
     .search {
         align-self: center;
-        width: 25%;
+        width: 28%;
     }
 }
 
