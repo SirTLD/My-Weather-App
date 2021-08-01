@@ -189,21 +189,6 @@ function geolocationQuery() {
   }
 
   // BACKGROUND CHANGE FOR SEARCH
-
-  let weatherChange = () => {
-    let mainContent = document.querySelector('.main-container');
-    mainContent.style.backgroundSize = 'cover';
-    if (`window.innerWidth > '1280px'`) {
-      mainContent.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${
-        document.querySelector('.search-field').value
-      })`;
-    } else {
-      mainContent.style.backgroundImage = `url('https://source.unsplash.com/500x800/?${
-        document.querySelector('.search-field').value
-      }')`;
-    }
-  };
-  weatherChange();
 }
 
 //USING SEARCH QUERIES
