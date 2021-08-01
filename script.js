@@ -208,6 +208,136 @@ function geolocationQuery() {
 
 //USING SEARCH QUERIES
 
+const SEARCH_PATH = `apiPath + 'London' + apiKey + apiUnit`;
+
+async function getWeather() {
+  const res = await fetch(SEARCH_PATH);
+  const data = await res.json();
+  weatherResult(data);
+  console.log(weatherResult(data));
+}
+
+//TARGETING THE MAIN SECTION
+
+// const mainContainer = document.getElementById('body-container');
+
+// function weatherResult() {
+//   // mainContainer.innerHTML = '';
+
+//   // let mainBody = document.createElement('div');
+
+//   // mainBody.classList.add('main-container-items');
+
+//   const { name } = data;
+
+//   const { icon, description, main } = data.weather[0];
+
+//   const { temp, humidity, feels_like } = data.main;
+
+//   const { speed } = data.wind;
+
+//   const { country } = data.sys;
+
+//   // mainBody.innerHTML = `
+
+//   mainContainer.innerHTML = `
+
+//   <div class="main-container-items">
+//             <div class="search">
+//                 <input class="search-field" type="text" placeholder="Enter City">
+//                 <i class="fas fa-search"></i>
+//             </div>
+
+//             <div class="weather-data">
+
+//                 <div class="weather-top-info">
+//                     <p class="city-location">${(name, country)} </p>
+//                     <p class="current-date">${currentDate()}</p>
+//                 </div>
+
+//                 <div class="weather-bottom-info">
+
+//                     <div class="temp">
+
+//                         <p class='temp-value'>${temp}</p>
+
+//                         <p class='temp-feels'>Feels Like <span class="feels_value">${feels_like}</span></p>
+
+//                     </div>
+
+//                     <div class="temp-icons">
+
+//                         <div class="temp-icons-top">
+
+//                             <div class="icon icon-1">
+//                                 <div class="icon-logo-1">
+
+//                                     <i id='iconDisplay' class="wi wi-day-sunny"></i>
+//                                 </div>
+
+//                                 <div class="icon-description">
+//                                     <h4 class="icon-1">Weather</h4>
+//                                     <h3 class="icon-1-description">${description}</h3>
+//                                 </div>
+//                             </div>
+
+//                             <div class="icon icon-2">
+//                                 <div class="icon-logo-2">
+//                                     <i class="wi wi-humidity"></i>
+//                                 </div>
+//                                 <div class="icon-description">
+//                                     <h4 class="icon-2-title">Humidi4ty</h4>
+//                                     <h3 class="icon-2-description">${humidity}</h3>
+//                                 </div>
+//                             </div>
+//                         </div>
+
+//                         <div class="temp-icons-bottom">
+
+//                             <div class="icon icon-3">
+//                                 <div class="icon-logo-3">
+//                                     <i class="wi wi-cloudy-gusts"></i>
+//                                 </div>
+//                                 <div class="icon-description">
+//                                     <h4 class="icon-3-title">Wind</h4>
+//                                     <h3 class="icon-3-description">${speed} km/h</h3>
+//                                 </div>
+//                             </div>
+
+//                             <div class="temp-toggle-container">
+//                                 <p class='temp-units'><span>°C</span></p>
+//                                 <div class="toggle-btn">
+//                                     <div class="inner-circle">
+//                                     </div>
+//                                 </div>
+//                                 <p class='temp-units'><span>°F</span></p>
+//                             </div>
+
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//             </div>
+
+//         `;
+
+//   // mainContainer.appendChild(mainBody);
+// }
+
+// function currentDate() {
+//   const today = moment().format('LL');
+//   return today;
+// }
+
+// // const SEARCH_PATH = apiPath + city + apiKey + apiUnit;
+
+// async function getWeather() {
+//   const res = await fetch(SEARCH_PATH);
+//   const data = await res.json();
+// }
+
+// USING SEARCH QUERIES
+
 function getWeather(city) {
   fetch(apiPath + city + apiKey + apiUnit)
     .then((res) => res.json())
